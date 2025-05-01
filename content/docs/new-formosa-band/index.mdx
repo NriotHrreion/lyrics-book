@@ -1,0 +1,15 @@
+---
+title: 新宝岛康乐队
+description: New Formosa Band's Lyrics
+---
+
+import { getPageTreePeers } from 'fumadocs-core/server';
+import { source } from '@/lib/source';
+ 
+<Cards>
+  {getPageTreePeers(source.pageTree, '/docs/new-formosa-band').map((peer) => (
+    <Card key={peer.url} title={peer.name} href={peer.url}>
+      {peer.description}
+    </Card>
+  ))}
+</Cards>

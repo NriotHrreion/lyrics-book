@@ -3,16 +3,9 @@ import Link from 'next/link';
 export default function HomePage() {
   return (
     <main className="flex flex-1 flex-col justify-center text-center">
-      <h1 className="mb-4 text-2xl font-bold">Hello World</h1>
+      <h1 className="mb-4 text-2xl font-bold">歌词本</h1>
       <p className="text-fd-muted-foreground">
-        You can open{' '}
-        <Link
-          href="/docs"
-          className="text-fd-foreground font-semibold underline"
-        >
-          /docs
-        </Link>{' '}
-        and see the documentation.
+        这是一个网页歌词本，包含陈升、李志的歌词，<Link href="/docs" className="text-fd-foreground underline">点击进入</Link>
       </p>
     </main>
   );
