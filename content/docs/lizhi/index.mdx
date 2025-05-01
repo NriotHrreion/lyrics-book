@@ -3,13 +3,23 @@ title: 李志
 description: Lizhi's Lyrics
 ---
 
+<Callout>
+  部分歌词因涉及政治敏感，故未收录. 如有问题，欢迎创建 [issue](https://github.com/NriotHrreion/lyrics-book/issues) .
+</Callout>
+
 import { getPageTreePeers } from 'fumadocs-core/server';
 import { source } from '@/lib/source';
- 
+
 <Cards>
-  {getPageTreePeers(source.pageTree, '/docs/lizhi').map((peer) => (
-    <Card key={peer.url} title={peer.name} href={peer.url}>
-      {peer.description}
-    </Card>
-  ))}
+  {
+    source.getPages().map((page, index) => (
+      page.url.startsWith("/docs/lizhi/")
+      ? (
+        <Card key={index} title={page.data.title} href={page.url}>
+          {page.data.description}
+        </Card>
+      )
+      : null
+    ))
+  }
 </Cards>

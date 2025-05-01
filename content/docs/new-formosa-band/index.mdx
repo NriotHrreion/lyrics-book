@@ -5,11 +5,17 @@ description: New Formosa Band's Lyrics
 
 import { getPageTreePeers } from 'fumadocs-core/server';
 import { source } from '@/lib/source';
- 
+
 <Cards>
-  {getPageTreePeers(source.pageTree, '/docs/new-formosa-band').map((peer) => (
-    <Card key={peer.url} title={peer.name} href={peer.url}>
-      {peer.description}
-    </Card>
-  ))}
+  {
+    source.getPages().map((page, index) => (
+      page.url.startsWith("/docs/new-formosa-band/")
+      ? (
+        <Card key={index} title={page.data.title} href={page.url}>
+          {page.data.description}
+        </Card>
+      )
+      : null
+    ))
+  }
 </Cards>
