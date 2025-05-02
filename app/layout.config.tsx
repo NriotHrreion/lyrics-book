@@ -17,6 +17,11 @@ export const baseOptions: BaseLayoutProps = {
       url: '/docs',
       active: 'nested-url',
     },
+    {
+      text: '贡献指南',
+      url: '/docs/contributing',
+      active: 'nested-url',
+    },
   ],
   githubUrl: 'https://github.com/NriotHrreion/lyrics-book'
 };
