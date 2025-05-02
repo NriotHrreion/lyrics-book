@@ -1,3 +1,8 @@
 {
-    "pages": ["bobby-chen", "new-formosa-band", "lizhi"]
+    "pages": [
+        "contributing",
+
+        "---索引---",
+        "bobby-chen", "new-formosa-band", "lizhi"
+    ]
 }

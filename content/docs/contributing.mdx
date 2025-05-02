@@ -1,0 +1,160 @@
+---
+title: 贡献指南
+description: 一些在为此项目贡献前所需要知道的事项
+---
+
+import { Step, Steps } from 'fumadocs-ui/components/steps';
+import { File, Folder, Files } from 'fumadocs-ui/components/files';
+
+## 添加歌手 / 艺术家
+
+<Steps>
+
+<Step>
+
+### 创建歌手文件夹
+
+在`content/docs`目录下创建一个文件夹，并将文件夹命名为对应的英文名称，名称应小写，并使用连词符`-`间隔
+
+<Callout>如：“陈升” 命名为 “bobby-chen”</Callout>
+
+</Step>
+
+<Step>
+
+### 添加歌手到索引列表中
+
+在`content/docs/meta.json`中将歌手的英文名称添加到列表的后面，名称应与第一步中的文件夹名称保持一致
+
+</Step>
+
+<Step>
+
+### 创建`index.mdx`
+
+在歌手文件夹下创建文件`index.mdx`，然后写入以下内容，注意将框中的内容修改为对应的名称
+
+这个文件的功能是在歌手页面中将该歌手的所有歌曲列出
+
+```jsx title="index.mdx"
+---
+// [!code word:新歌手]
+title: 新歌手
+// [!code word:New Singer]
+description: New Singer's Lyrics
+---
+
+// 你可以选择在这里写一些歌手的简介，也可以直接放空
+
+import { getPageTreePeers } from 'fumadocs-core/server';
+import { source } from '@/lib/source';
+
+<Cards>
+  {
+    source.getPages().map((page, index) => (
+    // [!code word:new-singer]
+      page.url.startsWith("/docs/new-singer/")
+      ? (
+        <Card key={index} title={page.data.title} href={page.url}>
+          {page.data.description}
+        </Card>
+      )
+      : null
+    ))
+  }
+</Cards>
+```
+
+</Step>
+
+<Step>
+
+### 按照下面的步骤添加专辑和歌词
+
+</Step>
+
+</Steps>
+
+## 添加专辑和歌词
+
+下面将以李志的《阿兰》（收录于专辑《被禁忌的游戏》）为例，介绍如何添加专辑和歌词
+
+<Steps>
+
+<Step>
+
+### 创建专辑文件夹
+
+在对应歌手的文件夹下创建专辑文件夹，文件夹名称应使用专辑的英文名，名称应小写，并使用连词符`-`间隔，可包含数字
+
+<Callout>如：“被禁忌的游戏” 命名为 “forbidden-game”</Callout>
+
+</Step>
+
+<Step>
+
+### 创建`meta.json`
+
+在专辑文件夹下创建文件`meta.json`，然后写入以下内容，将专辑的中文名称或正式名称填入`title`项
+
+```json title="meta.json"
+{
+    "title": "被禁忌的游戏"
+}
+```
+
+</Step>
+
+<Step>
+
+### 添加歌词
+
+在专辑文件夹下创建MDX文件用于保存歌词，注意歌词文件应使用数字命名（建议使用专辑内序号命名），文件结构如下
+
+<Files>
+    <Folder name="forbidden-game" defaultOpen>
+        <File name="1.mdx"/>
+        <File name="2.mdx"/>
+        <File name="3.mdx"/>
+        <File name="4.mdx"/>
+        <File name="5.mdx"/>
+        <File name="6.mdx"/>
+        <File name="7.mdx"/>
+        <File name="8.mdx"/>
+        <File name="9.mdx"/>
+        <File name="meta.json"/>
+    </Folder>
+</Files>
+
+接下来，向MDX文件中写入歌词
+
+```mdx title="1.mdx"
+---
+title: 阿兰
+description: 李志 - 被禁忌的游戏
+---
+
+阿兰你在哪啊
+
+你是否找到了他
+
+阿兰你现在的生活是否和我一样
+
+阿兰你还记得吗 我那时的模样
+
+阿兰你长大了是否还有人爱啊
+
+阿兰我们的生活像条颠簸飘离的船
+
+阿兰我们的生活像条颠簸飘离的船
+```
+
+<Callout type="warn">每一行歌词间必须包含一个空行或`<br />`进行换行，否则歌词在网页中显示时不会换行</Callout>
+
+</Step>
+
+</Steps>
+
+## 提交Pull Request
+
+请参考Github官方文档 [Creating a Pull Request from a Fork](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork)，fork本项目并提交Pull Request
