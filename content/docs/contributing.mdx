@@ -46,23 +46,10 @@ description: New Singer's Lyrics
 
 // 你可以选择在这里写一些歌手的简介，也可以直接放空
 
-import { getPageTreePeers } from 'fumadocs-core/server';
-import { source } from '@/lib/source';
+import { LyricsList } from '@/components/lyrics-list';
 
-<Cards>
-  {
-    source.getPages().map((page, index) => (
-    // [!code word:new-singer]
-      page.url.startsWith("/docs/new-singer/")
-      ? (
-        <Card key={index} title={page.data.title} href={page.url}>
-          {page.data.description}
-        </Card>
-      )
-      : null
-    ))
-  }
-</Cards>
+// [!code word:new-singer]
+<LyricsList artist="new-singer"/>
 ```
 
 </Step>

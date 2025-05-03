@@ -3,19 +3,6 @@ title: 陈升
 description: Bobby Chen's Lyrics
 ---
 
-import { getPageTreePeers } from 'fumadocs-core/server';
-import { source } from '@/lib/source';
+import { LyricsList } from '@/components/lyrics-list';
 
-<Cards>
-  {
-    source.getPages().map((page, index) => (
-      page.url.startsWith("/docs/bobby-chen/")
-      ? (
-        <Card key={index} title={page.data.title} href={page.url}>
-          {page.data.description}
-        </Card>
-      )
-      : null
-    ))
-  }
-</Cards>
+<LyricsList artist="bobby-chen"/>
