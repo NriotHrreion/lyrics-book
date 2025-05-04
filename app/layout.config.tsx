@@ -1,4 +1,5 @@
 import type { BaseLayoutProps } from 'fumadocs-ui/layouts/shared';
+import { githubUrl } from '@/lib/global';
 
 /**
  * Shared layout configurations
@@ -22,6 +23,11 @@ export const baseOptions: BaseLayoutProps = {
       url: '/docs/contributing',
       active: 'nested-url',
     },
+    {
+      text: 'API 文档',
+      url: '/docs/api',
+      active: 'nested-url',
+    },
   ],
-  githubUrl: 'https://github.com/NriotHrreion/lyrics-book'
+  githubUrl
 };

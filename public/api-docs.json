@@ -1,0 +1,87 @@
+{
+    "openapi": "3.1.0",
+    "info": {
+        "title": "Lyrics Book API Docs",
+        "description": "歌词本提供的API接口",
+        "version": "1.0",
+        "contact": {}
+    },
+    "servers": [
+        "https://lyrics.nocp.space",
+        "{protocol}://{domain}"
+    ],
+    "paths": {
+        "/api/lyrics": {
+            "get": {
+                "operationId": "getLyrics",
+                "summary": "获取歌词",
+                "description": "通过歌词路径获取歌词内容",
+                "parameters": [
+                    {
+                        "name": "path",
+                        "in": "query",
+                        "required": true,
+                        "description": "歌词路径",
+                        "schema": {
+                            "example": "/lizhi/forbidden-game/1",
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "请求成功",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "object",
+                                            "properties": {
+                                                "song": { "type": "string", "example": "" },
+                                                "lyrics": { "type": "string", "example": "" }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "未提供歌词路径",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "error": {
+                                            "type": "string",
+                                            "example": "Lyrics path is required"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "找不到歌词",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "error": {
+                                            "type": "string",
+                                            "example": "Lyrics not found"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

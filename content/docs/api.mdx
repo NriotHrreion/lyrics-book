@@ -1,0 +1,15 @@
+---
+title: API 文档
+description: 歌词本提供的API接口
+---
+
+import { APIPage } from 'fumadocs-openapi/ui';
+
+## 获取歌词
+
+<APIPage
+    document={'http://localhost:3000/api-docs.json'}
+    operations={[{ path: '/api/lyrics', method: 'get' }]}
+    webhooks={[]}
+    hasHead={false}
+/>

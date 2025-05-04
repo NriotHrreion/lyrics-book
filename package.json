@@ -12,6 +12,7 @@
     "@orama/tokenizers": "^3.1.6",
     "fumadocs-core": "15.2.11",
     "fumadocs-mdx": "11.6.1",
+    "fumadocs-openapi": "^8.1.6",
     "fumadocs-ui": "15.2.11",
     "next": "15.3.1",
     "react": "^19.1.0",

@@ -8,6 +8,7 @@ import {
 import { notFound } from 'next/navigation';
 import { createRelativeLink } from 'fumadocs-ui/mdx';
 import { getMDXComponents } from '@/mdx-components';
+import { CopyAPI, EditOnGithub, GoToAPI } from './page.client';
 
 export default async function Page(props: {
   params: Promise<{ slug?: string[] }>;
@@ -29,6 +30,16 @@ export default async function Page(props: {
             a: createRelativeLink(source, page),
           })}
         />
+
+        <div className='mt-8 space-x-3'>
+          <EditOnGithub page={page.file.path}/>
+          {page.slugs.length === 3 && (
+            <>
+              <GoToAPI page={page.file.path}/>
+              <CopyAPI page={page.file.path}/>
+            </>
+          )}
+        </div>
       </DocsBody>
     </DocsPage>
   );
