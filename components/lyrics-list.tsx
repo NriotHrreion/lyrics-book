@@ -7,7 +7,7 @@ interface LyricsListProps {
 
 export function LyricsList({ artist }: LyricsListProps) {
     return (
-        <Cards>
+        <Cards className='grid-cols-3'>
             {
                 source.getPages().map((page, index) => (
                     page.url.startsWith(`/docs/${artist}/`)
