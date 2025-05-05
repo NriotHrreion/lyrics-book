@@ -8,7 +8,7 @@ import {
 import { notFound } from 'next/navigation';
 import { createRelativeLink } from 'fumadocs-ui/mdx';
 import { getMDXComponents } from '@/mdx-components';
-import { CopyAPI, EditOnGithub, GoToAPI } from './page.client';
+import { CopyAPI, EditOnGithub, DownloadLyrics } from './page.client';
 
 export default async function Page(props: {
   params: Promise<{ slug?: string[] }>;
@@ -31,11 +31,11 @@ export default async function Page(props: {
           })}
         />
 
-        <div className='mt-8 space-x-3'>
+        <div className='mt-8 flex gap-3 items-center'>
           <EditOnGithub page={page.file.path}/>
           {page.slugs.length === 3 && (
             <>
-              <GoToAPI page={page.file.path}/>
+              <DownloadLyrics page={page.file.path}/>
               <CopyAPI page={page.file.path}/>
             </>
           )}

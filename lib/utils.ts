@@ -1,3 +1,6 @@
+import { clsx, type ClassValue } from 'clsx';
+import { twMerge } from 'tailwind-merge';
+
 export async function writeToClipboard(text: string) {
     if(navigator.clipboard) {
         await navigator.clipboard.writeText(text);
@@ -11,4 +14,8 @@ export async function writeToClipboard(text: string) {
         document.execCommand('copy');
         document.body.removeChild(textArea);
     }
+}
+
+export function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs));
 }
