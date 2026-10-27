@@ -23,7 +23,7 @@
                         "required": true,
                         "description": "歌词路径",
                         "schema": {
-                            "example": "/lizhi/forbidden-game/1",
+                            "examples": ["/lizhi/forbidden-game/1"],
                             "type": "string"
                         }
                     }
@@ -39,8 +39,8 @@
                                         "data": {
                                             "type": "object",
                                             "properties": {
-                                                "song": { "type": "string", "example": "" },
-                                                "lyrics": { "type": "string", "example": "" }
+                                                "song": { "type": "string", "examples": [""] },
+                                                "lyrics": { "type": "string", "examples": [""] }
                                             }
                                         }
                                     }
@@ -57,7 +57,7 @@
                                     "properties": {
                                         "error": {
                                             "type": "string",
-                                            "example": "Lyrics path is required"
+                                            "examples": ["Lyrics path is required"]
                                         }
                                     }
                                 }
@@ -73,7 +73,7 @@
                                     "properties": {
                                         "error": {
                                             "type": "string",
-                                            "example": "Lyrics not found"
+                                            "examples": ["Lyrics not found"]
                                         }
                                     }
                                 }
