@@ -32,11 +32,11 @@ export default async function Page(props: {
         />
 
         <div className='mt-8 flex gap-3 items-center'>
-          <EditOnGithub page={page.file.path}/>
+          <EditOnGithub page={page.path}/>
           {page.slugs.length === 3 && (
             <>
-              <DownloadLyrics page={page.file.path}/>
-              <CopyAPI page={page.file.path}/>
+              <DownloadLyrics page={page.path}/>
+              <CopyAPI page={page.path}/>
             </>
           )}
         </div>
