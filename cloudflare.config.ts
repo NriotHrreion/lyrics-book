@@ -14,6 +14,8 @@ export default defineConfig({
     env: {
       ASSETS: bindings.assets(),
     },
+    workersDev: false,
+    previewUrls: false,
     observability: {
       enabled: true,
       traces: { enabled: true, headSamplingRate: 0.01 },
