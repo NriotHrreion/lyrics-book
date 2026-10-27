@@ -3,15 +3,14 @@ title: API 文档
 description: 歌词本提供的API接口
 ---
 
-import { APIPage } from 'fumadocs-openapi/ui';
-import { siteUrl } from '@/lib/global';
+import { APIPage } from '@/components/api-page';
 import apiDocs from '@/lib/api-docs.json';
 
 ## 获取歌词
 
 <APIPage
-    document={apiDocs}
+    payload={{ bundled: apiDocs }}
     operations={[{ path: '/api/lyrics', method: 'get' }]}
     webhooks={[]}
-    hasHead={false}
+    showTitle={false} showDescription={false}
 />

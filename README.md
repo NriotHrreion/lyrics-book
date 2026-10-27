@@ -1,16 +1,28 @@
 # Lyrics Book
 
-A web-based lyrics book, including those written by Bobby Chen and Lizhi, powered by fumadocs
+A web-based lyrics book, including those written by Bobby Chen and Lizhi, powered by Fumadocs and Next.js (vinext).
 
 **[https://lyrics.nocp.space](https://lyrics.nocp.space)**
 
 ## Deploy locally
 
-```
+Requires Node.js 24.22.1 or later and npm.
+
+```sh
+npm ci
 npm run dev
 ```
 
 Then enter **`http://localhost:3000`** to see the lyrics book
+
+## Build and run
+
+```sh
+npm run typecheck
+npm run lint
+npm run build
+npm start
+```
 
 ## Contributing
 
