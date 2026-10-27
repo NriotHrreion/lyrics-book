@@ -28,3 +28,10 @@ yarn-error.log*
 next-env.d.ts
 /dist/
 .vinext/
+
+# Cloudflare generated output and local credentials
+/.cloudflare/
+/.wrangler/
+.env
+.dev.vars
+.dev.vars.*
