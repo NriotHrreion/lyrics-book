@@ -3,7 +3,7 @@ import { bindings, defineConfig, defineWorker } from 'cf/config';
 export default defineConfig({
   worker: defineWorker({
     name: 'lyrics-book',
-    entrypoint: 'vinext/server/fetch-handler',
+    entrypoint: './worker.ts',
     compatibilityDate: '2026-10-27',
     compatibilityFlags: ['nodejs_compat'],
     assets: {
